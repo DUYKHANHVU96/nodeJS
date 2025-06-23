@@ -1,0 +1,14 @@
+.card{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.card p{
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+}

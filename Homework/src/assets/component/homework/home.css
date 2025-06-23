@@ -1,0 +1,40 @@
+.product {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 24px;
+  margin: 20px auto;
+  max-width: 320px;
+  text-align: center;
+  transition: box-shadow 0.2s;
+}
+
+.product img {
+  width: 100%;
+  max-width: 200px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+}
+
+.product p {
+  margin: 8px 0;
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.product button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background 0.2s;
+}
+
+.product button:hover {
+  background: #0056b3;
+}
