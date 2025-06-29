@@ -3,13 +3,14 @@ import './App.css'
 import { useState } from 'react';
 
 function App() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');// state để lưu giá trị của input name
+  const [email, setEmail] = useState('');// state để lưu giá trị của input email
+  const [password, setPassword] = useState('');// state để lưu giá trị của input password
 
 
   const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+    setEmail(e.target.value); //(e) là event, target là thẻ input, value là giá trị của input được nhập vào
+    console.log(e.target.value); // in ra giá trị của input email
   } // ý tưởng là lấy giá trị từ input email và set vào state email
   // để khi submit thì có thể lấy được giá trị email
   // tương tự với password và name
@@ -29,7 +30,7 @@ function App() {
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault();// ngăn chặn hành vi mặc định của form khi submit
     console.log(name, email, password);
   }
 
@@ -44,23 +45,24 @@ function App() {
 
 
   if (name === '' || email === '' || password === '') // kiểm tra nếu name, email, password rỗng thì sẽ không cho submit
-    {
-    alert('Vui lòng nhập đầy đủ thông tin');
+  {
+    console.log('Vui lòng nhập đầy đủ thông tin');
     return;
   }
 
   if (!nameRegex.test(name)) { // kiểm tra nếu name không đúng định dạng thì sẽ không cho submit
-    alert('Tên không hợp lệ');
+    console.log('Tên không hợp lệ');
     return;
   }
   if (!emailRegex.test(email)) { // kiểm tra nếu email không đúng định dạng thì sẽ không cho submit
-    alert('Email không hợp lệ');
+    console.log('Email không hợp lệ');
     return;
   }
   if (!passwordRegex.test(password)) { // kiểm tra nếu password không đúng định dạng thì sẽ không cho submit
-    alert('Mật khẩu phải có ít nhất 8 ký tự, ít nhất 1 chữ cái và 1 số');
+    console.log('Mật khẩu phải có ít nhất 8 ký tự, ít nhất 1 chữ cái và 1 số');
     return;
   }
+
   // nếu tất cả các điều kiện trên đều đúng thì sẽ in ra console
   console.log('Đăng nhập thành công:', { name, email, password });
   // và có thể gửi dữ liệu lên server hoặc làm gì đó khác
@@ -79,5 +81,6 @@ function App() {
     </>
   )
 }
+
 
 export default App;
