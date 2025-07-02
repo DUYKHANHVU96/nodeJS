@@ -1,5 +1,4 @@
 import { memo, useState } from "react";
-import { Edit, Save, X, Trash2, Check } from "lucide-react";
 
 const TodoItem = memo(({ todo, onUpdate, onDelete }) => {
     const [isEditing, setIsEditing] = useState(false);
@@ -22,39 +21,39 @@ const TodoItem = memo(({ todo, onUpdate, onDelete }) => {
                                     onUpdate(input);
                                     setIsEditing(false);
                                 }} 
-                                className="bg-green-500 text-white p-2 rounded-md hover:bg-green-600 transition-colors"
+                                className="bg-green-500 text-white px-3 py-2 rounded-md hover:bg-green-600 transition-colors text-sm"
                                 title="Save"
                             >
-                                <Check className="w-4 h-4" />
+                                Save
                             </button>
                             <button 
                                 onClick={() => setIsEditing(false)} 
-                                className="bg-gray-500 text-white p-2 rounded-md hover:bg-gray-600 transition-colors"
+                                className="bg-gray-500 text-white px-3 py-2 rounded-md hover:bg-gray-600 transition-colors text-sm"
                                 title="Cancel"
                             >
-                                <X className="w-4 h-4" />
+                                Cancel
                             </button>
                         </>
                     ) : (
                         <button 
                             onClick={() => setIsEditing(true)} 
-                            className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition-colors"
+                            className="bg-blue-500 text-white px-3 py-2 rounded-md hover:bg-blue-600 transition-colors text-sm"
                             title="Edit"
                         >
-                            <Edit className="w-4 h-4" />
+                            Edit
                         </button>
                     )
                 }
                 <button 
                     onClick={onDelete} 
-                    className="bg-red-500 text-white p-2 rounded-md hover:bg-red-600 transition-colors"
+                    className="bg-red-500 text-white px-3 py-2 rounded-md hover:bg-red-600 transition-colors text-sm"
                     title="Delete"
                 >
-                    <Trash2 className="w-4 h-4" />
+                    Delete
                 </button>
             </div>
         </div>
     )
 });
 
-export default TodoItem;    
+export default TodoItem; 
