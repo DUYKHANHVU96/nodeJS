@@ -28,6 +28,7 @@ function App() {
 
         <div className="flex justify-between items-center gap-10 text-xl font-bold p-10">
           <a href="/" className='hover:text-yellow-600'>Liên hệ</a>
+          <a href="/" className='hover:text-yellow-600'>Đăng nhập</a>
           <a href="/" className='hover:text-yellow-600'><img src={shoppingbag} alt="giỏ hàng" className='w-10 h-10 hover:cursor-pointer hover:scale-110 transition-all duration-300 bg-black rounded-lg p-1' /></a>
         </div>
       </nav>
