@@ -7,12 +7,14 @@ export default function App() {
     { id: 3, text: 'Do coding challenges', completed: true }
   ])
   const [newTodo, setNewTodo] = useState('')
-  const [filter, setFilter] = useState('all') 
+  const [filter, setFilter] = useState('all')
+  const [nextId, setNextId] = useState(4)
 
   // Thêm todo mới
   const addTodo = () => {
     if (newTodo.trim()) {
-      setTodos([...todos, { id: Date.now(), text: newTodo, completed: false }])
+      setTodos([...todos, { id: nextId, text: newTodo, completed: false }])
+      setNextId(nextId + 1)
       setNewTodo('')
     }
   }

@@ -1,6 +1,7 @@
 import UserInfoForm from './components/UserInfoForm/UserInfoForm'
 import './App.css'
 import { useState } from 'react';
+import './index.css';
 
 function App() {
   const [name, setName] = useState('');// state để lưu giá trị của input name
@@ -31,7 +32,24 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();// ngăn chặn hành vi mặc định của form khi submit
-    console.log(name, email, password);
+
+    if (name === '' || email === '' || password === '') {
+      console.log('Vui lòng nhập đầy đủ thông tin');
+      return;
+    }
+    if (!nameRegex.test(name)) {
+      console.log('Tên không hợp lệ');
+      return;
+    }
+    if (!emailRegex.test(email)) {
+      console.log('Email không hợp lệ');
+      return;
+    }
+    if (!passwordRegex.test(password)) {
+      console.log('Mật khẩu phải có ít nhất 8 ký tự, ít nhất 1 chữ cái và 1 số');
+      return;
+    }
+    console.log('Đăng nhập thành công:', { name, email, password });
   }
 
   //validate email và password để đảm bảo người dùng nhập đúng định dạng
@@ -44,40 +62,15 @@ function App() {
   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/; // regex để kiểm tra password có ít nhất 8 ký tự, ít nhất 1 chữ cái và 1 số
 
 
-  if (name === '' || email === '' || password === '') // kiểm tra nếu name, email, password rỗng thì sẽ không cho submit
-  {
-    console.log('Vui lòng nhập đầy đủ thông tin');
-    return;
-  }
-
-  if (!nameRegex.test(name)) { // kiểm tra nếu name không đúng định dạng thì sẽ không cho submit
-    console.log('Tên không hợp lệ');
-    return;
-  }
-  if (!emailRegex.test(email)) { // kiểm tra nếu email không đúng định dạng thì sẽ không cho submit
-    console.log('Email không hợp lệ');
-    return;
-  }
-  if (!passwordRegex.test(password)) { // kiểm tra nếu password không đúng định dạng thì sẽ không cho submit
-    console.log('Mật khẩu phải có ít nhất 8 ký tự, ít nhất 1 chữ cái và 1 số');
-    return;
-  }
-
-  // nếu tất cả các điều kiện trên đều đúng thì sẽ in ra console
-  console.log('Đăng nhập thành công:', { name, email, password });
-  // và có thể gửi dữ liệu lên server hoặc làm gì đó khác
-  // ở đây chỉ in ra console để kiểm tra
-  // nếu không có lỗi thì sẽ gọi hàm handleSubmit để xử lý dữ liệu
-
   return (
     <>
       <h2>Đăng nhập email</h2>
-      <div className="form-container">
+      <form className="form-container" onSubmit={handleSubmit}>
         <UserInfoForm label="Name" type="text" handleChange={handleNameChange} />
         <UserInfoForm label="Email" type="email" handleChange={handleEmailChange} />
         <UserInfoForm label="Password" type="password" handleChange={handlePasswordChange} />
         <button type="submit">Đăng nhập</button>
-      </div>
+      </form>
     </>
   )
 }

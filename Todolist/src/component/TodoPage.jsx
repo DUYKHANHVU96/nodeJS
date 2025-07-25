@@ -6,16 +6,18 @@ const TodoPage = () => {
     const [todos, setTodos] = useState([]);
     const [search, setSearch] = useState("");
     const [input, setInput] = useState("");
+    const [nextId, setNextId] = useState(1);
 
     const handleAddTodo = useCallback((text) => {
         const newTodo = {
-            id: todos.length + 1 + Date.now(),
+            id: nextId,
             text,
             completed: false,
             createdAt: new Date().toISOString(),
         }
         setTodos([...todos, newTodo]);
-    }, [input]);
+        setNextId(nextId + 1);
+    }, [input, nextId, todos]);
 
     const handleUpdateTodo = useCallback((index, text) => {
         setTodos((prev) => {

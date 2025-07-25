@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite' // Import hàm defineConfig từ Vite
+import react from '@vitejs/plugin-react' // Import plugin React cho Vite
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react()], // Cấu hình plugin React để Vite có thể build React app
 })
